@@ -154,7 +154,7 @@ resource "aws_autoscaling_group" "main" {
 }
 
 resource "aws_autoscaling_policy" "main"{
-    autoscaling_group_name = aws_autoscaling_group.main
+    autoscaling_group_name = aws_autoscaling_group.main.arn
     name = "${local.common_name_suffix}-${var.component}"
     policy_type = "TargetTrackingScaling"
     target_tracking_configuration {
