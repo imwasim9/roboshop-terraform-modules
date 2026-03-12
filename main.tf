@@ -87,7 +87,7 @@ resource "aws_launch_template" "main"{
       tags = merge(
         local.common_tags,
         {
-            Name = "${local.common_name_suffix}-${var.environment}"
+            Name = "${local.common_name_suffix}-${var.component}"
         }
       )
     }
@@ -98,7 +98,7 @@ resource "aws_launch_template" "main"{
       tags = merge(
         local.common_tags,
         {
-            Name = "${local.common_name_suffix}-${var.environment}"
+            Name = "${local.common_name_suffix}-${var.component}"
         }
       )    
     }
@@ -107,7 +107,7 @@ resource "aws_launch_template" "main"{
     tags = merge(
         local.common_tags,
         {
-            Name = "${local.common_name_suffix}-${var.environment}"
+            Name = "${local.common_name_suffix}-${var.component}"
         }
       ) 
 }
@@ -138,7 +138,7 @@ resource "aws_autoscaling_group" "main" {
     for_each = merge(
         local.common_tags,
         {
-            Name = "${local.common_name_suffix}-${var.environment}"
+            Name = "${local.common_name_suffix}-${var.component}"
         }
     )
     content {
